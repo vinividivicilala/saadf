@@ -1,0 +1,56 @@
+---
+import Icon from "../components/Icon.astro";
+import Layout from "./Layout.astro";
+const {
+  frontmatter: { title, description, pubDate, image, author, slug, link },
+} = Astro.props;
+const posts = await Astro.glob("../pages/proyect/**/*.mdx");
+const postsSlugs = posts.map((post) => post.frontmatter.slug);
+const actualSlugIndex = postsSlugs.indexOf(slug);
+const prevSlugIndex =
+  actualSlugIndex > 0 ? actualSlugIndex - 1 : postsSlugs.length - 1;
+const nextSlugIndex =
+  actualSlugIndex < postsSlugs.length - 1 ? actualSlugIndex + 1 : 0;
+---
+
+<Layout title={title}>
+  <main class="flex justify-center">
+    <article
+      class="flex flex-col-reverse justify-start lg:flex-row items-center lg:justify-between mt-10 xs:mt-10 md:mt-20 text-white w-11/12 xl:w-9/12 mb-40"
+    >
+      <div
+        class="flex flex-col items-center md:mt-10 lg:mt-0 article-body w-full lg:w-5/12 lg:items-start lg:pl-24"
+      >
+        <div
+          class="flex justify-between w-11/12 lg:w-40 lg:ml-[-100px] max-sm:mt-[-230px] max-md:mt-[-30%] max-lg:mt-[-35%] max-lg:mb-[30%]"
+        >
+          <Icon
+            size={8}
+            style={"bg-main rounded-2xl"}
+            src={"/assets/circle_chevron_left.svg"}
+            href={"./" + postsSlugs[prevSlugIndex]}
+          />
+          <Icon
+            size={8}
+            style={"bg-main rounded-2xl"}
+            src={"/assets/circle_chevron_right.svg"}
+            href={"./" + postsSlugs[nextSlugIndex]}
+          />
+        </div>
+        <div class="xs:mt-10 md:mt-10 w-10/12 lg:w-full">
+          <h1
+            class="title text-white text-2xl font-bold mb-4 md:mb-10 lg:ml-[-40px]"
+          >
+            {title}
+          </h1>
+          <div class="text-md"><slot /></div>
+        </div>
+      </div>
+      <a
+        class="md:mt-10 min-h-[300px] object-contain w-10/12 lg:w-5/12 rounded-md"
+        href={link}
+        ><img class="rounded-lg" src={image} alt={description} /></a
+      >
+    </article>
+  </main>
+</Layout>

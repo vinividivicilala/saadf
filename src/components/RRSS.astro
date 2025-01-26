@@ -1,0 +1,28 @@
+---
+import Icon from "./Icon.astro";
+const icons = [
+  {
+    name: "Github",
+    src: "../../assets/github.svg",
+    href: "https://github.com/mtrunkbear",
+  },
+  {
+    name: "Linkedin",
+    src: "../../assets/linkedin.svg",
+    href: "https://www.linkedin.com/in/miguel-troncoso-g/",
+  },
+  {
+    name: "Twitter",
+    src: "../../assets/twitter.svg",
+    href: "https://twitter.com/mtrunkbear",
+  },
+];
+---
+
+<div class="flex py-2 space-x-6 sm:justify-center sm:mt-0">
+  {
+    icons.map(({ name, src, href }) => (
+      <Icon name={name} src={src} href={href} />
+    ))
+  }
+</div>

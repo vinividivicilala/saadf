@@ -1,0 +1,42 @@
+---
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+const posts = await Astro.glob("../pages/proyect/**/*.mdx");
+const { quantity, withButton } = Astro.props;
+---
+
+<section
+  id="Proyects"
+  class="flex flex-col w-11/12 lg:w-11/12 xl:w-12/12 2xl:w-[1300px] box-content items-center mb-40"
+>
+  <h3
+    class="mb-7 ml-10 lg:ml-20 text-2xl font-semibold text-white w-full md:w-11/12 lg:w-full text-start"
+  >
+    Featured Work
+  </h3>
+  <div
+    class="flex h-auto w-full md:w-11/12 lg:w-full flex-col lg:flex-row items-center justify-between rounded-lg shadow"
+  >
+    <ul
+      class="w-full h-auto box-content place-items-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 list-none lg:mr-10 mb-10 lg:mb-0"
+    >
+      {
+        posts
+          .slice(0, quantity ? quantity : posts.length )
+          .map((post) => (
+            <li>
+              <Card
+                url={"/proyect/" + post.frontmatter.slug}
+                image={post.frontmatter.image}
+                title={post.frontmatter.title}
+                description={post.frontmatter.description}
+              >
+                {post.frontmatter.description}
+              </Card>
+            </li>
+          ))
+      }
+    </ul>
+   {withButton&& <Button style="width:100px;" href={"./works"}>More Projects</Button>}
+  </div>
+</section>

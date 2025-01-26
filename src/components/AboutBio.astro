@@ -1,0 +1,32 @@
+---
+import ImageCircle from "./ImageCircle.astro";
+import IntroDescription from "./IntroDescription.astro";
+import RRSS from "./RRSS.astro";
+---
+
+<h1
+  class="text-center sm:text-center lg:text-end mt-10 md:mt-20 lg:pr-56 xl:pr-64 text-2xl font-semibold text-white w-9/12 2xl:w-10/12"
+>
+  About Me
+</h1>
+
+<section
+  id="Intro"
+  class="flex lg:h-auto mt-6 md:mt-10 w-9/12 lg:w-11/12 xl:w-11/12 2xl:w-full flex-col items-center justify-center rounded-lg lg:flex-row mb-10"
+>
+  <ImageCircle />
+  <IntroDescription
+    title={"Miguel Troncoso"}
+    descriptionStyle="text-sm md:text-md font-normal "
+    style="md:pl-32 w-[80vw] md:w-[80vw] lg:w-full items-start md:items-start lg:items-end sm:pl-4 md:pl-4 sm:items-center md:items-center lg:pl-0"
+    description={`Hello! 👋 I am a passionate full-stack developer based in Santiago, Chile. Currently, I am a part of the team at Opis, an innovative startup with a focus on environmental issues, where I continuously expand my skills and knowledge in the technological field.
+
+      Before joining Opis, I had the privilege of working with prominent companies like Dreambox and Approvecha, contributing to the development of innovative projects. 👨‍💻
+      
+      Besides my love for programming, I am fascinated by learning new things and always on the lookout for opportunities to broaden my horizons. 📚 I also enjoy music and love playing the guitar 🎸, exploring a wide variety of styles, with metal being my favorite. 🤘
+      
+      I can't deny that I'm an animal lover 🐾. I take care of some furry friends 😄 with much affection and patience at home, and they make my life more special.
+      
+      I'm always open to connecting with like-minded people and sharing experiences, so feel free to get in touch with me. You can reach me at <a class="text-sky-300" href="mailto:migueltroncoso.ga@gmail.com"><b>Send Email📧</b></a> or follow me on my social media. Looking forward to connecting with you soon! 🤝`}
+  />
+</section>

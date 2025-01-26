@@ -1,0 +1,12 @@
+---
+import PagesLinks from "./PagesLinks.astro";
+import RRSS from "./RRSS.astro";
+---
+
+<footer
+  class="w-full py-2 flex flex-col md:flex-row h-auto md:h-36 items-center justify-evenly bg-black border-t border-gray-500 box-content"
+>
+  <RRSS />
+  <PagesLinks isInFooter="true/" />
+  <p class={"text-gray-400 order-last p-2"}>Last Update {"Jul 2023"}</p>
+</footer>

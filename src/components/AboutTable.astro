@@ -1,0 +1,51 @@
+---
+const headTableTitles = [
+  {
+    text: "Studies",
+    src: "./assets/study.svg",
+    content: {
+      rows: [
+        { text: "* Master in Digital Business", link: "" },
+        { text: "* Comercial Engineer", link: "" },
+      ],
+    },
+  },
+  {
+    text: "CV",
+    src: "./assets/report.svg",
+    content: { rows: [{ text: "Download", link: "./cv.pdf" }] },
+  },
+  {
+    text: "Roles",
+    src: "./assets/briefcase.svg",
+    content: { rows: [{ text: "* Fullstack Dev - OPIS", link: "./cv.pdf" },{ text: "* Fullstack Dev - Dreambox", link: "./cv.pdf" },{ text: "* FrontEnd Dev - Approvecha", link: "./cv.pdf" }] },
+  },
+  { text: "Tools", src: "./assets/checklist.svg", content: { rows: [{ text:"React Js, React Native, Node Js, Next Js, SQL, AWS, GC"}]} },
+  
+];
+const colWidth = (text:string)=>text=="CV" ? "w-2/12" :text=="Tools"?"w-2/12":"w-3/12"
+---
+<div class="flex w-10/12 md:w-9/12 lg:w-11/12 2xl:w-full items-center justify-center mb-20">
+    <div
+      class="flex justify-between text-white w-full rounded-xl bg-[rgb(50,50,50,0.5)] p-5"
+    >
+      {
+        headTableTitles.map(({ text, src, content }) => (
+          <div class=`${colWidth(text)} justify-center`>
+            <span class="text-[12px] sm:text-xs md:text-base flex w-full items-center justify-start">
+              <img class="w-3 sm:w-4 md:w-6 mr-1" src={src} alt={"Studies"} />
+              {text}
+            </span>
+            <div class="flex flex-col w-full items-start justify-center mt-8">
+              {content?.rows?.map(({ text, link }) => (
+            
+                <a class="mt-2 h-10" href={link}> <p class="text-[11px] sm:text-sm md:text-base">{text}</p>
+                 
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>

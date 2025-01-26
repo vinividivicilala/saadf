@@ -1,0 +1,49 @@
+---
+import Button from "./Button.astro";
+import PagesLinks from "./PagesLinks.astro";
+---
+
+<nav
+  class="flex w-full h-16 md:h-24 border-gray-200 bg-gradient-to-b from-[rgba(0,0,0,1)] to-[rgba(30,0,64,1)] dark:bg-gradient-to-b z-20"
+>
+  <div
+    class="w-full max-w-screen-xl h-full flex flex-wrap items-center justify-between mx-auto p-2 md:p-4"
+  >
+    <a href="/" class="flex items-center hover:scale-110">
+      <img
+        src="/assets/logo.svg"
+        class="mr-3 w-16 md:w-18 transition-transform transform"
+        alt="Migueltrunkbear logo"
+      />
+    </a>
+    <div class="flex items-center md:order-2">
+      <Button width={20} height={8} href="/contact">Contact</Button>
+      <button
+        data-collapse-toggle="navbar-cta"
+        type="button"
+        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-cta"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-8 h-8"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"></path></svg
+        >
+      </button>
+    </div>
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+      id="navbar-cta"
+    >
+      <PagesLinks />
+    </div>
+  </div>
+</nav>

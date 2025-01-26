@@ -1,0 +1,34 @@
+---
+import Button from './Button.astro';
+export interface Props {
+  title: string;
+  image: string;
+  url: string;
+  description: string;
+}
+
+const { url, image, title, description } = Astro.props;
+---
+
+<div class=" flex flex-col min-w-[250px] w-[90vw] sm:w-[48vw] md:w-[38vw] lg:w-[24vw] xl:w-[14-vw] sm:max-w-[280px] md:max-w-full lg:max-w-[300px] xl:max-w-[300px] h-[480px] rounded-3xl shadow bg-main hover:scale-[1.02] transition ease-in-out delay-50">
+  <a  href={url}>
+    <h5
+      class="flex text-[20px] font-bold tracking-tight text-gray-900 dark:text-white h-[80px] items-center p-5 pl-8"
+    >
+      {title}
+    </h5>
+  </a>
+  <a  href={url}>
+    <img class="w-full h-[200px] object-cover" src={image} alt="" />
+  </a>
+  <div class=" h-80 pl-8 pr-4 py-2 items-center justify-start">
+    <p class=" text-sm  font-normal text-gray-300  ">
+      {description}
+    </p>
+  </div>
+  <div
+    class="flex items-center justify-center bg-black w-full h-full  rounded-b-3xl"
+  >
+ <Button width={"36"} href={url}>View</Button>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+---
+const { href, width, height } = Astro.props;
+---
+
+<a
+  id="button"
+  href={href}
+  class=`flex items-center justify-center text-white w-${width} h-[36px]  ${height?"h-"+height:""} md:w-40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-2xl text-sm px-4 py-2 text-center border-gradient border-gradient-mask`
+  style=""><slot /></a
+>
+
+<style>
+  .border-gradient {
+    position: relative;
+    padding: 15px 20px;
+  }
+  #button {
+    background: linear-gradient(
+        263.99deg,
+        #1e0040 18.74%,
+        rgba(76, 0, 112, 0.8) 116.28%
+      ),
+      linear-gradient(110.32deg, #bcbcbc -2.98%, #680198 63.51%);
+  }
+  #button:hover {
+    background: linear-gradient(
+        263.99deg,
+        #3c0080 18.74%,
+        rgba(174, 0, 255, 0.8) 116.28%
+      ),
+      linear-gradient(110.32deg, #bcbcbc -2.98%, #ae00ff 63.51%);
+  }
+  .border-gradient-mask::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background: linear-gradient(150.32deg, #bcbcbc -2.98%, #680198 63.51%)
+      border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+</style>

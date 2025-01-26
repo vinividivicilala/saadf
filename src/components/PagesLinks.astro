@@ -1,0 +1,26 @@
+---
+const pages = [
+  { title: "About", route: "/about" },
+  { title: "Works", route: "/works" },
+  { title: "Blog", route: "https://jotter.blog/@migueltrunkbear" },
+];
+const { isInFooter} = Astro.props;
+---
+
+<ul
+class=`flex font-medium md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700 ${isInFooter? "p-2 border-0 mt-0 flex-row order-first md:order-2": "flex-col p-4 mt-4 bg-[#341c4c] md:bg-transparent"} `
+>
+{
+  pages.map(({ title, route }) => (
+    <li class="flex">
+      <a
+        href={route}
+        class={`block ${isInFooter?"":"py-2"} pl-3 pr-4 text-white font-bold text-3x1 leading-29  rounded md:bg-transparent md:p-0 transi hover:scale-125 transition ease-in-out delay-100 `}
+        aria-current="page"
+      >
+        {title}
+      </a>
+    </li>
+  ))
+}
+</ul>

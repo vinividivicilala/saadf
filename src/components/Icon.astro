@@ -1,0 +1,15 @@
+---
+import { dynamicViteAssetImport } from "../utils/functions.js";
+
+const { src, name, href, size = 6,style } = Astro.props;
+const { default: innerHTML } = await dynamicViteAssetImport(src);
+---
+
+<a
+  href={href}
+  class=`text-gray-500 w-${size} hover:scale-150 cursor-pointer fill-white hover:fill-main hover:brightness-200 ${style}`
+ 
+>
+  <Fragment set:html={innerHTML}  />
+  <span class="sr-only">{name}</span>
+</a>
